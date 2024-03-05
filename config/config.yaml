@@ -23,6 +23,9 @@ model_trainer:
   model_name: model.joblib
 
 model_evaluation:
+  root_dir: artifacts/model_evaluation
   x_test_data_path: artifacts/data_transformation/X_test.csv
   truth_value_path: artifacts/data_ingestion/predictivemaintenance/sea_level/ground_truth_values
+  model_path: artifacts/model_trainer/model.joblib
+  metric_name: metrics.json
   

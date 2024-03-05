@@ -1,0 +1,27 @@
+dnspython==2.2.1
+database-connect==0.1.66
+catboost
+streamlit
+pandas
+notebook
+numpy
+imblearn
+scikit-learn
+matplotlib
+python-box==6.0.2
+pyYAML
+ensure==1.0.2
+joblib
+types-PyYAML
+pathlib
+subprocess.run
+pillow==9.0.0
+python-dotenv
+ipykernel
+jinja2==3.1.2
+mypy-boto3-s3==1.24.76
+pymongo==4.2.0
+python-dotenv==0.21.0
+python-multipart==0.0.6
+xgboost==1.6.2
+-e .

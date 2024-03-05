@@ -1,0 +1,29 @@
+
+## raw data schema
+COLUMNS:
+  Engine Number: int64  
+  Times/ in cycle: int64
+  Altitude(Setting_1): float64
+  Mach Number(Setting_2): float64
+  TRA(Setting_3): float64
+  Total Fan inlet temperature: float64
+  Total LPC outlet temperature: float64
+  Total HPC outlet temperature: float64
+  Total LPT outlet temperature: float64
+  Total Fan inlet pressure: float64
+  Total bypass-duct pressure: float64
+  Total HPC outlet pressure: float64
+  Physical fan speed: float64
+  Physical core speed: float64
+  Engine pressure ratio(P50/P2): float64
+  Static HPC outlet pressure: float64
+  Ratio of fuel flow to Ps30: float64
+  Corrected fan speed: float64
+  Corrected core speed: float64
+  Bypass Ratio: float64
+  Burner fuel-air ratio: float64
+  Bleed enthalpy: int64
+  Required fan speed: int64
+  Required fan conversion speed: float64
+  HPT coolant bleed: float64
+  LPT coolant bleed: float64

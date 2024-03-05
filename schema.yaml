@@ -28,6 +28,9 @@ COLUMNS:
   HPT coolant bleed: float64
   LPT coolant bleed: float64
 
+TARGET_COULMN:
+  RUL: int64
+
 COLS_TO_DROP_CATBOOST:
   Required fan speed: int64
   Required fan conversion speed: float64

@@ -73,3 +73,19 @@ class ConfigurationManager:
         )
 
         return model_trainer_config
+    
+    def get_model_evaluation_config(self) -> config_entity.ModelEvaluationConfig:
+        config = self.config.model_evaluation
+        params = self.params.CatBoostRegressor
+
+        create_directories([config.root_dir])
+
+        model_evaluation_config = config_entity.ModelEvaluationConfig(
+            root_dir=config.root_dir,
+            x_test_data_path=config.x_test_data_path,
+            truth_value_path=config.truth_value_path,
+            model_path=config.model_path,
+            metric_name=config.metric_name
+        )
+
+        return model_evaluation_config

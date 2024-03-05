@@ -27,3 +27,17 @@ COLUMNS:
   Required fan conversion speed: float64
   HPT coolant bleed: float64
   LPT coolant bleed: float64
+
+COLS_TO_DROP_CATBOOST:
+  Required fan speed: int64
+  Required fan conversion speed: float64
+  Burner fuel-air ratio: float64 
+  Total Fan inlet pressure: float64
+  Altitude(Setting_1): float64
+  Mach Number(Setting_2): float64
+  TRA(Setting_3): float64
+  Total Fan inlet temperature: float64
+  HPT coolant bleed: float64
+  Engine Number: int64
+  Corrected core speed: float64
+  Bypass Ratio: float64 

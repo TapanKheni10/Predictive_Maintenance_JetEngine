@@ -58,3 +58,18 @@ class ConfigurationManager:
         )
 
         return data_transformation_config
+    
+    def get_model_trainer_config(self) -> config_entity.ModelTrainerConfig:
+        config = self.config.model_trainer
+        params = self.params.CatBoostRegressor
+
+        create_directories([config.root_dir])
+
+        model_trainer_config = config_entity.ModelTrainerConfig(
+            root_dir=config.root_dir,
+            x_train_data_path=config.x_train_data_path,
+            y_train_data_path=config.y_train_data_path,
+            model_name=config.model_name,
+        )
+
+        return model_trainer_config

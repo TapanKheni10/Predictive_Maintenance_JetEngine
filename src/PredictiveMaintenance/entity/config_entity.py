@@ -23,3 +23,9 @@ class DataTransformationConfig:
     all_schema: list
     cols_to_drop: list
 
+@dataclass
+class ModelTrainerConfig:
+    root_dir: Path
+    x_train_data_path: Path
+    y_train_data_path: Path
+    model_name: str

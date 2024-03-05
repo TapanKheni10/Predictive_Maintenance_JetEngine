@@ -5,3 +5,6 @@ RandomForestRegressor:
   bootstrap: True
   max_depth: 12
   max_features: 'sqrt'
+
+CatBoostRegressor:
+  iterations: 1000

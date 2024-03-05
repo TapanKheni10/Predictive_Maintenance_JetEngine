@@ -41,3 +41,20 @@ class ConfigurationManager:
             all_schema=schema
         )
         return data_validation_config
+    
+    def get_data_transformation_config(self) -> config_entity.DataTransformationConfig:
+        config = self.config.data_transformation
+        schema = self.schema.COLUMNS
+        drop_schema = self.schema.COLS_TO_DROP_CATBOOST
+
+        create_directories([config.root_dir])
+
+        data_transformation_config = config_entity.DataTransformationConfig(
+            root_dir=config.root_dir,
+            train_data_path=config.train_data_path,
+            test_data_path=config.test_data_path,
+            all_schema=list(schema.keys()),
+            cols_to_drop=list(drop_schema.keys())
+        )
+
+        return data_transformation_config

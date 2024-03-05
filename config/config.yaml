@@ -2,12 +2,17 @@ artifacts_root : artifacts
 
 data_ingestion:
   root_dir: artifacts/data_ingestion
-  source_URL: "https://github.com/TapanKheni10/DataSets/raw/main/Predictive_Maintenance.zip"
-  local_data_file: artifacts/data_ingestion/Predictive_Maintenance.zip
+  source_URL: "https://github.com/TapanKheni10/DataSets/raw/main/predictivemaintenance.zip"
+  local_data_file: artifacts/data_ingestion/predictivemaintenance.zip
   unzip_dir: artifacts/data_ingestion
 
 data_validation:
   root_dir: artifacts/data_validation
-  unzip_file_dir: artifacts/data_ingestion/Predictive_Maintenance/train_FD001.txt
+  unzip_file_dir: artifacts/data_ingestion/predictivemaintenance/sea_level/train_data/train_FD001.txt
   STATUS_FILE: artifacts/data_validation/status.txt
 
+data transformation:
+  root_dir: artifacts/data_transformation
+  train_data_path: artifacts/data_ingestion/predictivemaintenance/sea_level/train_data
+  test_data_path: artifacts/data_ingestion/predictivemaintenance/sea_level/test_data
+  

@@ -7,4 +7,9 @@ RandomForestRegressor:
   max_features: 'sqrt'
 
 CatBoostRegressor:
-  iterations: 1000
+  iterations: 1467
+  learning_rate: 0.015175362479891397
+  depth: 5
+  subsample: 0.8738722247011351
+  colsample_bylevel: 0.1446086128973638
+  min_data_in_leaf: 68

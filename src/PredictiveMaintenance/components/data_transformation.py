@@ -30,8 +30,6 @@ class DataTransformation:
         X_test = df2.iloc[:,:len(df2.columns)+1]
 
         return X_train, y_train, X_test
-    
-    import pandas as pd
 
     def replace_outliers_with_median(self, df: pd.DataFrame) -> pd.DataFrame:
         Q1 = df.quantile(0.10) 
@@ -90,37 +88,22 @@ class DataTransformation:
                 logger.info(f"DataFrame '{df_name}' has been created with shape: {df.shape}")
 
         train_FD001 = dfs["train_FD001"]
-        train_FD003 = dfs["train_FD003"]
         test_FD001 = dfs["test_FD001"]
-        test_FD003 = dfs["test_FD003"]
 
-        logger.info("Start adding RUL features for train_FD001 and train_FD003\n")
+        logger.info("Start adding RUL features for train_FD001\n")
         train_FD001 = self.add_RUL_feature(train_FD001)
-        train_FD003 = self.add_RUL_feature(train_FD003)
-        logger.info("Finished adding RUL features for train_FD001 and train_FD003\n")
+        logger.info("Finished adding RUL features for train_FD001\n")
 
-        logger.info("Start preparing test_FD001 and test_FD003\n") 
+        logger.info("Start preparing test_FD001\n") 
         test_FD001 = self.prepare_test_data(test_FD001)
-        test_FD003 = self.prepare_test_data(test_FD003)
-        logger.info("Finished preparing test_FD001 and test_FD003\n")    
+        logger.info("Finished preparing test_FD001\n")    
         
         logger.info("train_test_split process started.....")
-        X_train_FD001, y_train_FD001, X_test_FD001 = self.train_test_split(df1=train_FD001, df2=test_FD001)
-        X_train_FD003, y_train_FD003, X_test_FD003 = self.train_test_split(df1=train_FD003, df2=test_FD003)
+        X_train, y_train, X_test = self.train_test_split(df1=train_FD001, df2=test_FD001)
         logger.info("train_test_split completed.")
 
-        logger.info(f"X_train_FD001: {X_train_FD001.shape}, y_train_FD001: {y_train_FD001.shape}, X_test_FD001: {X_test_FD001.shape}")
-        logger.info(f"X_train_FD003: {X_train_FD003.shape}, y_train_FD003: {y_train_FD003.shape}, X_test_FD003: {X_test_FD003.shape}")
-
-        logger.info(f"Merging train and test datasets.")
-        X_train = pd.concat([X_train_FD001, X_train_FD003])
-        y_train = pd.concat([y_train_FD001, y_train_FD003])
-        logger.info(f"X_train: {X_train.shape}, y_train: {y_train.shape}")
-
-        X_test = pd.concat([X_test_FD001, X_test_FD003])
-        logger.info(f"X_test: {X_test.shape}")
-        logger.info(f"Completed train and test datasets.")
-
+        logger.info(f"X_train: {X_train.shape}, y_train: {y_train.shape}, X_test: {X_test.shape}")
+        
         logger.info("Dropping unnecessory columns.")
         logger.info(f"Before dropping: {X_train.columns}")
 
@@ -130,7 +113,7 @@ class DataTransformation:
         logger.info(f"After dropping: {X_train.columns}")
         logger.info("Unnecessory columns are droped.")
 
-        y_train.clip(upper=260)
+        y_train = y_train.clip(upper=125)
 
         logger.info("Outlier dropping start")
         X_train = self.replace_outliers_with_median(X_train)

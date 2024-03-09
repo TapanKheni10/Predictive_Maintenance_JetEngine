@@ -29,6 +29,7 @@ class ModelTrainerConfig:
     x_train_data_path: Path
     y_train_data_path: Path
     model_name: str
+    params: dict
 
 @dataclass
 class ModelEvaluationConfig:

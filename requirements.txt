@@ -2,6 +2,7 @@ dnspython==2.2.1
 database-connect==0.1.66
 catboost
 streamlit
+lightgbm
 pandas
 notebook
 numpy

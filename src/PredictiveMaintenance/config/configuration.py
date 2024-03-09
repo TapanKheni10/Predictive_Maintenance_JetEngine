@@ -70,6 +70,7 @@ class ConfigurationManager:
             x_train_data_path=config.x_train_data_path,
             y_train_data_path=config.y_train_data_path,
             model_name=config.model_name,
+            params=params
         )
 
         return model_trainer_config

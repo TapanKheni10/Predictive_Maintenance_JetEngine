@@ -14,9 +14,9 @@ class ModelEvaluation:
         self.config = config
 
     def eval_matrix(self, y_true, y_pred):
-        rmse = np.sqrt(mean_squared_error(y_true=y_true, y_pred=y_pred))
-        mse = mean_squared_error(y_true=y_true, y_pred=y_pred)
-        r2 = r2_score(y_true=y_true, y_pred=y_pred)
+        rmse = np.sqrt(mean_squared_error(y_pred=y_pred, y_true=y_true))
+        mse = mean_squared_error(y_pred=y_pred, y_true=y_true)
+        r2 = r2_score(y_pred=y_pred, y_true=y_true)
         return rmse, mse, r2
     
     def save_matrix(self):
@@ -38,17 +38,10 @@ class ModelEvaluation:
                 logger.info(f"DataFrame '{df_name}' has been created with shape: {df.shape}")
         
         RUL_FD001 = dfs["RUL_FD001"]
-        RUL_FD003 = dfs["RUL_FD003"]
 
-        y_test_FD001 = RUL_FD001.iloc[:,-1]
-        y_test_FD003 = RUL_FD003.iloc[:,-1]
+        y_test = RUL_FD001.iloc[:,-1]
 
-        logger.info(f"y_test_FD001: {y_test_FD001.shape}, y_test_FD003: {y_test_FD003.shape}")
-
-        y_test = pd.concat([y_test_FD001, y_test_FD003])
-        logger.info("Concatenating test data.")
-
-        y_test.clip(upper=260)
+        logger.info(f"y_test: {y_test.shape}")
 
         model = joblib.load(self.config.model_path)
         y_pred = model.predict(X_test)

@@ -14,7 +14,7 @@ class ModelTrainer:
         X_train = pd.read_csv(self.config.x_train_data_path)
         y_train = pd.read_csv(self.config.y_train_data_path)
 
-        catboost_regressor = CatBoostRegressor(**self.config.params, random_state=42)
+        catboost_regressor = CatBoostRegressor(**self.config.params, verbose=False, random_state=42)
         catboost_regressor.fit(X_train, y_train)
 
         joblib.dump(catboost_regressor, os.path.join(self.config.root_dir, self.config.model_name))

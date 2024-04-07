@@ -75,7 +75,7 @@ st.write("""
          
     This AI-enabled solutions has the potential to:
     - Significantly decreases the number of unwanted downtimes and failures
-    - Reduce the cost of aviation industry
+    - Reduce the maintenance cost of aviation industry
     - Ensure passengers safety
 """)
 

@@ -7,7 +7,7 @@ from PredictiveMaintenance import logger
 
 class PredictionPipeline:
     def __init__(self):
-        self.model = joblib.load(Path('artifacts/model_trainer/model.joblib'))
+        self.model = joblib.load(Path('artifacts/model_2/model_trainer/model.joblib'))
 
     def predict(self, data):
         prediction = int(self.model.predict(data))

@@ -21,6 +21,7 @@ sdist/
 var/
 wheels/
 share/python-wheels/
+/artifacts/model_2/model_trainer/model.joblib
 *.egg-info/
 .installed.cfg
 *.egg

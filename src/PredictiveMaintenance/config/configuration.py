@@ -90,3 +90,75 @@ class ConfigurationManager:
         )
 
         return model_evaluation_config
+    
+    def get_data_validation_config_2(self) -> config_entity.DataValidationConfig_2:
+        config = self.config.data_validation_2
+        schema = self.schema.COLUMNS
+
+        create_directories([config.root_dir])
+
+        data_validation_config = config_entity.DataValidationConfig_2(
+            root_dir=config.root_dir,
+            STATUS_FILE=config.STATUS_FILE,
+            unzip_data_dir = config.unzip_data_dir,
+            all_schema=schema,
+        )
+
+        return data_validation_config
+    
+    def get_data_transformation_config_2(self) -> config_entity.DataTransformationConfig_2:
+        config = self.config.data_transformation_2
+        cols_schema=self.schema.COLUMNS
+        cols_to_drop_schema=self.schema.COLUMNS_TO_DROP_2
+
+        create_directories([config.root_dir])
+
+        data_transformation_config = config_entity.DataTransformationConfig_2(
+            root_dir=config.root_dir,
+            train_data_path=config.train_data_path,
+            test_data_path=config.test_data_path,
+            ground_truth_data_path=config.ground_truth_data_path,
+            columns=list(cols_schema.keys()),
+            columns_to_drop=list(cols_to_drop_schema.keys())
+        )
+        return data_transformation_config
+    
+    def get_model_trainer_config_2(self) -> config_entity.ModelTrainerConfig_2:
+        config = self.config.model_trainer_2
+        params = self.params.RandomForestRegressor_2
+
+        create_directories([config.root_dir])
+
+        model_trainer_config = config_entity.ModelTrainerConfig_2(
+            root_dir=config.root_dir,
+            X_train_path = config.X_train_path,
+            y_train_path = config.y_train_path,
+            X_test_path=config.X_test_path,
+            ground_truth_data_apth=config.ground_truth_data_path,
+            model_name = config.model_name,
+            criterion=params.criterion,
+            max_features=params.max_features,
+            n_estimators=params.n_estimators,
+            oob_score=params.oob_score
+            
+        )
+
+        return model_trainer_config
+    
+    def get_model_evaluation_config_2(self) -> config_entity.ModelEvaluationConfig_2:
+        config = self.config.model_evaluation_2
+        params = self.params.RandomForestRegressor_2
+
+        create_directories([config.root_dir])
+
+        model_evaluation_config = config_entity.ModelEvaluationConfig_2(
+            root_dir=config.root_dir,
+            X_test_path=config.X_test_path,
+            ground_truth_data_path=config.ground_truth_data_path,
+            model_path = config.model_path,
+            all_params=params,
+            metric_file_name = config.metric_file_name,
+           
+        )
+
+        return model_evaluation_config

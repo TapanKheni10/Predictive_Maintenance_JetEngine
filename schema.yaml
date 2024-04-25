@@ -45,8 +45,7 @@ COLS_TO_DROP_CATBOOST:
   Corrected core speed: float64
   Bypass Ratio: float64
 
-COLS_TO_DROP_CATBOOST_2:
-  COLUMNS_TO_DROP:
+COLUMNS_TO_DROP_2:
   Engine Number: int64
   Times/ in cycle: int64
   Burner fuel-air ratio: float64

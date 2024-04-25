@@ -7,51 +7,51 @@ data_ingestion:
   unzip_dir: artifacts/data_ingestion
 
 data_validation:
-  root_dir: artifacts/data_validation
+  root_dir: artifacts/model_1/data_validation
   unzip_file_dir: artifacts/data_ingestion/predictivemaintenance/sea_level/train_data/train_FD001.txt
-  STATUS_FILE: artifacts/data_validation/status.txt
+  STATUS_FILE: artifacts/model_1/data_validation/status.txt
 
 data transformation:
-  root_dir: artifacts/data_transformation
+  root_dir: artifacts/model_1/data_transformation
   train_data_path: artifacts/data_ingestion/predictivemaintenance/sea_level/train_data
   test_data_path: artifacts/data_ingestion/predictivemaintenance/sea_level/test_data
 
 model_trainer:
-  root_dir: artifacts/model_trainer
-  x_train_data_path: artifacts/data_transformation/X_train.csv
-  y_train_data_path: artifacts/data_transformation/y_train.csv 
+  root_dir: artifacts/model_1/model_trainer
+  x_train_data_path: artifacts/model_1/data_transformation/X_train.csv
+  y_train_data_path: artifacts/model_1/data_transformation/y_train.csv 
   model_name: model.joblib
 
 model_evaluation:
-  root_dir: artifacts/model_evaluation
-  x_test_data_path: artifacts/data_transformation/X_test.csv
+  root_dir: artifacts/model_1/model_evaluation
+  x_test_data_path: artifacts/model_1/data_transformation/X_test.csv
   truth_value_path: artifacts/data_ingestion/predictivemaintenance/sea_level/ground_truth_values
-  model_path: artifacts/model_trainer/model.joblib
+  model_path: artifacts/model_1/model_trainer/model.joblib
   metric_name: metrics.json
 
 data_validation_2:
-  root_dir: artifacts/data_validation
-  unzip_data_dir: artifacts\data_ingestion\predictivemaintenance\all_six_condition\train_data\train_FD002.txt
-  STATUS_FILE: artifacts/data_validation/status.txt
+  root_dir: artifacts/model_2/data_validation
+  unzip_data_dir: artifacts/data_ingestion/predictivemaintenance/all_six_condition/train_data/train_FD002.txt
+  STATUS_FILE: artifacts/model_2/data_validation/status.txt
 
 data_transformation_2:
-  root_dir: artifacts/data_transformation
+  root_dir: artifacts/model_2/data_transformation
   train_data_path: artifacts/data_ingestion/predictivemaintenance/all_six_condition/train_data/train_FD002.txt
   test_data_path: artifacts/data_ingestion/predictivemaintenance/all_six_condition/test_data/test_FD002.txt
   ground_truth_data_path: artifacts/data_ingestion/predictivemaintenance/all_six_condition/ground_truth_values/RUL_FD002.txt
 
 model_trainer_2:
-  root_dir: artifacts/model_trainer
-  X_train_path: artifacts/data_transformation/X_train.csv
-  y_train_path: artifacts/data_transformation/y_train.csv
-  X_test_path: artifacts/data_transformation/X_test.csv
-  ground_truth_data_path: artifacts/data_transformation/RUL.csv
+  root_dir: artifacts/model_2/model_trainer
+  X_train_path: artifacts/model_2/data_transformation/X_train.csv
+  y_train_path: artifacts/model_2/data_transformation/y_train.csv
+  X_test_path: artifacts/model_2/data_transformation/X_test.csv
+  ground_truth_data_path: artifacts/model_2/data_transformation/RUL.csv
   model_name: model.joblib
 
 model_evaluation_2:
-  root_dir: artifacts/model_evaluation
-  X_test_path: artifacts/data_transformation/X_test.csv
-  ground_truth_data_path: artifacts/data_transformation/RUL.csv
-  model_path: artifacts/model_trainer/model.joblib
-  metric_file_name: artifacts/model_evaluation/metrics.json
+  root_dir: artifacts/model_2/model_evaluation
+  X_test_path: artifacts/model_2/data_transformation/X_test.csv
+  ground_truth_data_path: artifacts/model_2/data_transformation/RUL.csv
+  model_path: artifacts/model_2/model_trainer/model.joblib
+  metric_file_name: artifacts/model_2/model_evaluation/metrics.json
   

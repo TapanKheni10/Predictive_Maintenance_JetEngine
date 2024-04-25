@@ -13,3 +13,9 @@ CatBoostRegressor:
   subsample: 0.8738722247011351
   colsample_bylevel: 0.1446086128973638
   min_data_in_leaf: 68
+
+RandomForestRegressor_2:
+  criterion: "poisson"
+  max_features: "sqrt"
+  n_estimators: 150
+  oob_score: True

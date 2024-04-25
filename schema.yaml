@@ -43,4 +43,18 @@ COLS_TO_DROP_CATBOOST:
   HPT coolant bleed: float64
   Engine Number: int64
   Corrected core speed: float64
-  Bypass Ratio: float64 
+  Bypass Ratio: float64
+
+COLS_TO_DROP_CATBOOST_2:
+  COLUMNS_TO_DROP:
+  Engine Number: int64
+  Times/ in cycle: int64
+  Burner fuel-air ratio: float64
+  Required fan speed: float64
+  Total Fan inlet temperature: float64
+  Total Fan inlet pressure: float64
+  Required fan conversion speed: float64
+  Mach Number(Setting_2): float64
+  TRA(Setting_3): float64
+  Bleed enthalpy: int64
+  Engine pressure ratio(P50/P2): float64
